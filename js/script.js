@@ -14,23 +14,24 @@ var addEventToEachSq = function(){
   for(var i = 0; i < $square.length;i++){
     $square[i].click(function(){
       if($square[i].attr('selected') === 'yes'){
-        $square[i].addClass('.correct');
+        $square[i].addClass('correct');
       }else{
-        $square[i].addClass('.wrong');
+        $square[i].addClass('wrong');
       }
     })
   }
 }//addEventToEachSq()
 
 var selectRandomColorSquare = function(){
-  debugger
   var $square = $('.square');
-  console.log($square);
   for (var i = 0; i < Math.ceil($row*$col/3);i++){
     var $randomIndex = Math.floor(Math.random()*$square.length);
-    console.log($randomIndex)
-    console.log($square[$randomIndex]);
-    $square[$randomIndex].addClass('selected');
+      if(!$($square[$randomIndex]).hasClass('selected')){
+      var $randomSq = $square[$randomIndex];
+      $($randomSq).addClass('selected');
+      }else{
+      return
+      }
   }
 }//selectRandomColorSquare()
 
