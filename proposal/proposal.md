@@ -2,6 +2,17 @@
 
 ### User Stories
 ![](memory.jpg)
+
+**startGame()** <br>
+**addEventToSquare()** <br>
+**selectColorSquare()** <br>
+**changeYellow()** and stay for 5 seconds<br>
+**changeWhite()** <br>
+**checkSquare()** <br>
+**nextLevel()** <br>
+
+
+
 * As a user, I need to be able to click a button to start Game
 * The game start 2 seconds after clicking
 * A matrix with random colored elements appears and stay for 5 seconds
