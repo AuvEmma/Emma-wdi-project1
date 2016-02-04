@@ -3,23 +3,31 @@ document.ready
 $(function() {
 console.log('LINKED!');
 
-var $buttonIsEnable = true;
+var $isStartButtonEnable = true;
 var $gameboard = $('.gameboard');
 var $row = 2;
 var $col = 2;
 var $lengthOfSq = 105;
+var $wrongGuess = 0;
+
+var hideWrong = function(){
+  var $wrong= $('.wrong');
+  $($wrong).removeClass('wrong');
+}//hideWrong()
 
 var addEventToEachSq = function(){
   var $square = $('.square');
   for(var i = 0; i < $square.length;i++){
-    $square[i].click(function(){
-      if($square[i].attr('selected') === 'yes'){
-        $square[i].addClass('correct');
+    $($square[i]).click(function(event){
+      if($(this).hasClass('hidden')){
+        $(this).addClass('correct');
       }else{
-        $square[i].addClass('wrong');
+        $(this).addClass('wrong');
+        window.setTimeout(hideWrong,700);
+        $wrongGuess += 1;
       }
-    })
-  }
+    })//click
+  }//for
 }//addEventToEachSq()
 
 var selectRandomColorSquare = function(){
@@ -35,10 +43,18 @@ var selectRandomColorSquare = function(){
   }
 }//selectRandomColorSquare()
 
+var hideSelected = function(){
+  var $selected = $('.selected');
+  for (var i = 0; i < $selected.length;i++){
+    $($selected).removeClass('selected');
+    $($selected).addClass('hidden');
+  }
+}//hideSelected()
 
 var startGame = function(){
-  //if($buttonIsEnable === true){}...
-      $('#button').click(function(event){
+      // if($isStartButtonEnable === true){
+      $('#button').click(function(){
+        $isStartButtonEnable = false;
         $gameboard.width($row * $lengthOfSq).height($col*$lengthOfSq);
         for(var i = 0; i < $row * $col; i++){
           var $el = $('<div>').addClass('square');
@@ -46,13 +62,14 @@ var startGame = function(){
           $gameboard.append($el);
         }//forloop in side buttonclick
         selectRandomColorSquare();
+
+        window.setTimeout(hideSelected,1500);
+        window.setTimeout(addEventToEachSq,1500);
     })//buttonclick
 
 
 
-    // changeYellow();
-    // changeWhite();
-
+  // }//if (isStartButtonEnable)
 }//startGame()
 
 var a = new startGame();
