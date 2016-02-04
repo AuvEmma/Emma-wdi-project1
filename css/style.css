@@ -7,7 +7,7 @@ body {
   font: 400 50px/1.2 'Merienda One', Helvetica, sans-serif;
   color: rgba(0,0,0,0.7);
   text-shadow: 3px 3px 3px #fff;
-  padding: 50px 20px 10px 80px
+  padding: 11px 20px 10px 80px
 }
 
 #button{
@@ -19,7 +19,7 @@ body {
   border-radius: 15px;
   box-shadow: 3px 3px 3px #fff;
   margin-top: 30px;
-  margin-left: 200px;
+  margin-left: 1092px;
 }
 
 #button:hover{
@@ -45,9 +45,9 @@ body {
 
 }
 .gameboard{
-  position: absolute;
-  left: 550px;
-  top: 200px;
+  position: relative;
+      margin-left: 340px;
+      margin-top: -27px;
 }
 
 .correct{

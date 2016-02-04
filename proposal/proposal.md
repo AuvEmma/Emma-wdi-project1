@@ -5,9 +5,8 @@
 
 **startGame()** <br>
 **addEventToSquare()** <br>
-**selectColorSquare()** <br>
-**changeYellow()** and stay for 5 seconds<br>
-**changeWhite()** <br>
+**selectRandomColorSquare()** <br>
+**hideSelected()** <br>
 **checkSquare()** <br>
 **nextLevel()** <br>
 
