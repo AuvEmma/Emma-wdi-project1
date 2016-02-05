@@ -152,7 +152,12 @@ var startGame = function(r,c){
   // }//if (isStartButtonEnable)
 }//startGame()
 
-$('#button').click(startGame($row,$col))
+$('#button').on('click',function(e){
+  startGame($row,$col);
+  console.log('click');
+});
+
+
 })//document.ready
 
 //yeah!!!!!!!!!
