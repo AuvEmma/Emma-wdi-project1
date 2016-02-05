@@ -21,6 +21,7 @@ var nextLevel = function(){
   if ($row <=5 && $col <= 5){
   $row += 1;
   $col += 1;
+  console.log('row'+$row+':'+'col'+$col);
   startGame($row,$col);
   }else{
   startGame($row,$col);
@@ -30,6 +31,18 @@ $correctGuess = 0;
 }//nextLevel
 
 var isReadyForNext = function(){
+  // var $boo = false;
+  // var $square = $('.square');
+  // for(var i = 0; i < $square.length;i++){
+  //   if($($square[i]).hasClass('hidden') && $($square[i]).hasClass('correct')){
+  //     $boo = true
+  //   }else{
+  //     $boo = false;
+  //   }
+  //   return $boo;
+  // }
+  console.log('correctGuess'+$correctGuess);
+  console.log('mathceil'+ Math.ceil($row*$col/3));
   if($correctGuess === Math.ceil($row*$col/3)){
     return true;
   }else{
@@ -45,16 +58,20 @@ var addEventToEachSq = function(){
       if($(this).hasClass('hidden') && !$(this).hasClass('clicked')){
         $(this).addClass('correct clicked');
         $correctGuess += 1;
+        console.log('correct'+$correctGuess);
       }else if($(this).hasClass('clicked')){
-        return;
-      }
-      else{
+        return
+      }else{
         $(this).addClass('wrong');
         window.setTimeout(hideWrong,700);
         $wrongGuess += 1;
+        console.log('wrong'+$wrongGuess);
       }
       if(isReadyForNext()){
         nextLevel();
+      }else if($wrongGuess === 2){
+        $('hidden').addClass('yellow');
+        window.setTimeout($('hidden').removeClass('yellow'),1000)
       };
     })//click
   }//for
@@ -68,9 +85,22 @@ var selectRandomColorSquare = function(){
       var $randomSq = $square[$randomIndex];
       $($randomSq).addClass('selected');
       }else{
-      return
+        var $anotherIndex = $randomIndex + 1;
+        if(!$($square[$anotherIndex]).hasClass('selected')){
+        $($square[$anotherIndex]).addClass('selected')
+        }else{
+          var $anotherIndex = $randomIndex - 1;
+          if(!$($square[$anotherIndex]).hasClass('selected')){
+          $($square[$anotherIndex]).addClass('selected');
+          }else{
+            var $anotherIndex = $randomIndex + 2;
+            if(!$($square[$anotherIndex]).hasClass('selected')){
+              $($square[$anotherIndex]).addClass('selected');
+            }
+          }
       }
   }
+}//this method is soooooooooooooooo stupid!
 }//selectRandomColorSquare()
 
 var hideSelected = function(){
