@@ -1,0 +1,79 @@
+body {
+  background: url(http://www.rickyneath.com/backgrounds/8.jpg);
+  background-size: cover;
+}
+
+.header{
+  font: 400 50px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+  padding: 11px 20px 10px 80px
+}
+
+#button{
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  background-color: #4c4c4c;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px #fff;
+  margin-top: 30px;
+  margin-left: 1092px;
+}
+
+#button:hover{
+  background-color: #aaaaaa;
+}
+
+#button:active {
+  background-color: #aaaaaa;
+  box-shadow: 0 5px #fff;
+  transform: translateY(4px);
+}
+
+.square{
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  background-color: #4c4c4c;
+  border-radius: 25px;
+  border: 2px solid;
+  margin-left: 1px;
+  border-color: white;
+
+}
+.gameboard{
+  position: relative;
+      margin-left: 340px;
+      margin-top: -27px;
+}
+
+.correct{
+  background-color: yellow;
+}
+.wrong{
+  background-color: red;
+}
+
+.selected{
+background-color: yellow;
+}
+
+.score{
+  font: 400 50px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+}
+.player1{
+  position: absolute;
+  font-size: 20px;
+  margin-left: 89px;
+}
+.player2{
+  position: absolute;
+  font-size: 20px;
+  margin-left: 89px;
+  margin-top: 40px;
+}
