@@ -26,21 +26,56 @@ var compareScore = function(){
     alert('Player 1 Wins!');
     $('.square').remove();
     $isStartButtonEnable = true;
-    $row = 2;
-    $col = 2;
+    $gameboard = $('.gameboard');
+    $row = 2;//max 5
+    $col = 2;//max x
+    $lengthOfSq = 105;
+    $wrongGuess = 0;
+    $correctGuess = 0;
+    $score1 = 0;
+    $score2 = 0;
+    $currentPlayer = 1;
+    $life = 3;
+    $(".player1").text('Player 1 Score: '+$score1);
+    $(".player2").text('Player 2 Score: '+$score2);
+    $('.wrongGuess').text('Life: '+$life);
+
   }else if ($score2 > $score1){
     alert('Player 2 Wins!');
     $('.square').remove();
     $isStartButtonEnable = true;
-    $row = 2;
-    $col = 2;
+    $gameboard = $('.gameboard');
+    $row = 2;//max 5
+    $col = 2;//max x
+    $lengthOfSq = 105;
+    $wrongGuess = 0;
+    $correctGuess = 0;
+    $score1 = 0;
+    $score2 = 0;
+    $currentPlayer = 1;
+    $life = 3;
+    $(".player1").text('Player 1 Score: '+$score1);
+    $(".player2").text('Player 2 Score: '+$score2);
+    $('.wrongGuess').text('Life: '+$life);
   }else{
     alert('Tie!');
     $('.square').remove();
     $isStartButtonEnable = true;
-    $row = 2;
-    $col = 2;
+    $gameboard = $('.gameboard');
+    $row = 2;//max 5
+    $col = 2;//max x
+    $lengthOfSq = 105;
+    $wrongGuess = 0;
+    $correctGuess = 0;
+    $score1 = 0;
+    $score2 = 0;
+    $currentPlayer = 1;
+    $life = 3;
+    $(".player1").text('Player 1 Score: '+$score1);
+    $(".player2").text('Player 2 Score: '+$score2);
+    $('.wrongGuess').text('Life: '+$life);
   }
+
 }//compareScore()
 
 
@@ -107,7 +142,7 @@ var addEventToEachSq = function(){
         window.setTimeout(hideWrong,700);
         $wrongGuess += 1;
         $life -= 1;
-        $('.wrongGuess').text('Wrong Guesses: '+$life);
+        $('.wrongGuess').text('Life: '+$life);
         console.log('wrong'+$wrongGuess);
         if(isReadyToSwitchPlayer()){
           $('.hidden').addClass('selected');
@@ -126,7 +161,7 @@ var addEventToEachSq = function(){
       if(isReadyForNext()){
         nextLevel();
         $life = 3;
-        $('.wrongGuess').text('Wrong Guesses: '+$life);
+        $('.wrongGuess').text('Life: '+$life);
       }
     })//click
   }//for
