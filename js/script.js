@@ -14,6 +14,7 @@ var $score1 = 0;
 var $score2 = 0;
 var $currentPlayer = 1;
 var $life = 3;
+var $cheat = 0;
 
 
 var hideWrong = function(){
@@ -36,6 +37,7 @@ var compareScore = function(){
     $score2 = 0;
     $currentPlayer = 1;
     $life = 3;
+    $cheat = 0;
     $(".player1").text('Player 1 Score: '+$score1);
     $(".player2").text('Player 2 Score: '+$score2);
     $('.wrongGuess').text('Life: '+$life);
@@ -54,6 +56,7 @@ var compareScore = function(){
     $score2 = 0;
     $currentPlayer = 1;
     $life = 3;
+    $cheat = 0;
     $(".player1").text('Player 1 Score: '+$score1);
     $(".player2").text('Player 2 Score: '+$score2);
     $('.wrongGuess').text('Life: '+$life);
@@ -71,6 +74,7 @@ var compareScore = function(){
     $score2 = 0;
     $currentPlayer = 1;
     $life = 3;
+    $cheat = 0;
     $(".player1").text('Player 1 Score: '+$score1);
     $(".player2").text('Player 2 Score: '+$score2);
     $('.wrongGuess').text('Life: '+$life);
@@ -148,6 +152,7 @@ var addEventToEachSq = function(){
           $('.hidden').addClass('selected');
           alert('Player '+ $currentPlayer + ' Game Over');
           $currentPlayer = 2;
+          $cheat = 0;
           $('.square').remove();
           $life = 3;
           $row = 2;
@@ -213,8 +218,13 @@ $('#button').on('click',function(e){
 });//button Click
 
 $('#cheat').on('click', function(e){
+  if($cheat === 2){
+    alert('NO MORE CHEATING!!!')
+  }else{
   showSelected();
   window.setTimeout(hideSelected,1500);
+  $cheat+=1;
+  }
 })
 
 })//document.ready
