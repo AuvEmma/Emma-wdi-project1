@@ -26,14 +26,20 @@ var compareScore = function(){
     alert('Player 1 Wins!');
     $('.square').remove();
     $isStartButtonEnable = true;
+    $row = 2;
+    $col = 2;
   }else if ($score2 > $score1){
     alert('Player 2 Wins!');
     $('.square').remove();
     $isStartButtonEnable = true;
+    $row = 2;
+    $col = 2;
   }else{
     alert('Tie!');
     $('.square').remove();
     $isStartButtonEnable = true;
+    $row = 2;
+    $col = 2;
   }
 }//compareScore()
 
@@ -173,7 +179,7 @@ $('#button').on('click',function(e){
 
 $('#cheat').on('click', function(e){
   showSelected();
-  window.setTimeout(hideSelected,1500);  
+  window.setTimeout(hideSelected,1500);
 })
 
 })//document.ready
