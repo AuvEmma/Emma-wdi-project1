@@ -150,18 +150,4 @@ var startGame = function(r,c){
 }//startGame()
 
 $('#button').click(startGame($row,$col))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })//document.ready
