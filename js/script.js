@@ -10,7 +10,7 @@ var $col = 2;//max 6
 var $lengthOfSq = 105;
 var $wrongGuess = 0;
 var $correctGuess = 0;
-
+var $score = 0
 var hideWrong = function(){
   var $wrong= $('.wrong');
   $($wrong).removeClass('wrong');
@@ -44,6 +44,8 @@ var isReadyForNext = function(){
   console.log('correctGuess'+$correctGuess);
   console.log('mathceil'+ Math.ceil($row*$col/3));
   if($correctGuess === Math.ceil($row*$col/3)){
+    $score += 1;
+    $('.score').text('Player 1 Score: '+$score);
     return true;
   }else{
     return false;
@@ -81,27 +83,37 @@ var selectRandomColorSquare = function(){
   var $square = $('.square');
   for (var i = 0; i < Math.ceil($row*$col/3);i++){
     var $randomIndex = Math.floor(Math.random()*$square.length);
-      if(!$($square[$randomIndex]).hasClass('selected')){
-      var $randomSq = $square[$randomIndex];
-      $($randomSq).addClass('selected');
-      }else{
-        var $anotherIndex = $randomIndex + 1;
-        if(!$($square[$anotherIndex]).hasClass('selected')){
-        $($square[$anotherIndex]).addClass('selected')
-        }else{
-          var $anotherIndex = $randomIndex - 1;
-          if(!$($square[$anotherIndex]).hasClass('selected')){
-          $($square[$anotherIndex]).addClass('selected');
-          }else{
-            var $anotherIndex = $randomIndex + 2;
-            if(!$($square[$anotherIndex]).hasClass('selected')){
-              $($square[$anotherIndex]).addClass('selected');
-            }
-          }
-      }
-  }
-}//this method is soooooooooooooooo stupid!
+    var $randomSq = $square[$randomIndex];
+    $($randomSq).addClass('selected');
+    $square = jQuery.grep($square,function(a){
+                      return a !== $randomSq;
+                    });
+};//for
 }//selectRandomColorSquare()
+
+
+//   for (var i = 0; i < Math.ceil($row*$col/3);i++){
+//     var $randomIndex = Math.floor(Math.random()*$square.length);
+//       if(!$($square[$randomIndex]).hasClass('selected')){
+//       var $randomSq = $square[$randomIndex];
+//       $($randomSq).addClass('selected');
+//       }else{
+//         var $anotherIndex = $randomIndex + 1;
+//         if(!$($square[$anotherIndex]).hasClass('selected')){
+//         $($square[$anotherIndex]).addClass('selected')
+//         }else{
+//           var $anotherIndex = $randomIndex - 1;
+//           if(!$($square[$anotherIndex]).hasClass('selected')){
+//           $($square[$anotherIndex]).addClass('selected');
+//           }else{
+//             var $anotherIndex = $randomIndex + 2;
+//             if(!$($square[$anotherIndex]).hasClass('selected')){
+//               $($square[$anotherIndex]).addClass('selected');
+//             }
+//           }
+//       }
+//   }
+// }//this method is soooooooooooooooo stupid!
 
 var hideSelected = function(){
   var $selected = $('.selected');
@@ -121,13 +133,9 @@ var startGame = function(r,c){
           $gameboard.append($el);
         }//forloop in side buttonclick
         selectRandomColorSquare();
-
         window.setTimeout(hideSelected,1500);
         window.setTimeout(addEventToEachSq,1500);
     // })//buttonclick
-
-
-
   // }//if (isStartButtonEnable)
 }//startGame()
 

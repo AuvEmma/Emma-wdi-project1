@@ -60,3 +60,20 @@ body {
 .selected{
 background-color: yellow;
 }
+
+.score{
+  font: 400 50px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+}
+.player1{
+  position: absolute;
+  font-size: 20px;
+  margin-left: 89px;
+}
+.player2{
+  position: absolute;
+  font-size: 20px;
+  margin-left: 89px;
+  margin-top: 40px;
+}
