@@ -1,6 +1,6 @@
 body {
   background: url(http://www.rickyneath.com/backgrounds/8.jpg);
-  background-size: cover;
+  background-size: 3000px;
 }
 
 .header{
@@ -11,7 +11,7 @@ body {
 }
 
 .discription{
-  font: 400 20px/1.2 'Merienda One', Helvetica, sans-serif;
+  font: 400 15px/1.2 'Merienda One', Helvetica, sans-serif;
   color: rgba(0,0,0,0.7);
   text-shadow: 3px 3px 3px #fff;
   position: absolute;
