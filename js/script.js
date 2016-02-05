@@ -6,7 +6,7 @@ console.log('LINKED!');
 var $isStartButtonEnable = true;
 var $gameboard = $('.gameboard');
 var $row = 2;//max 5
-var $col = 2;//max 5
+var $col = 2;//max x
 var $lengthOfSq = 105;
 var $wrongGuess = 0;
 var $correctGuess = 0;
@@ -24,12 +24,15 @@ var compareScore = function(){
   if($score1 > $score2){
     alert('Player 1 Wins!');
     $('.square').remove();
+    $isStartButtonEnable = true;
   }else if ($score2 > $score1){
     alert('Player 2 Wins!');
     $('.square').remove();
+    $isStartButtonEnable = true;
   }else{
     alert('Tie!');
     $('.square').remove();
+    $isStartButtonEnable = true;
   }
 }//compareScore()
 
@@ -137,8 +140,6 @@ var hideSelected = function(){
 }//hideSelected()
 
 var startGame = function(r,c){
-      // if($isStartButtonEnable === true){
-      // $('#button').click(function(){
         $isStartButtonEnable = false;
         $gameboard.width(r * $lengthOfSq).height(c*$lengthOfSq);
         for(var i = 0; i < r * c; i++){
@@ -148,14 +149,15 @@ var startGame = function(r,c){
         selectRandomColorSquare();
         window.setTimeout(hideSelected,1500);
         window.setTimeout(addEventToEachSq,1500);
-    // })//buttonclick
-  // }//if (isStartButtonEnable)
 }//startGame()
 
 $('#button').on('click',function(e){
+  if($isStartButtonEnable === true){
   startGame($row,$col);
-  console.log('click');
-});
+  }else{
+    return;
+  }
+});//button Click
 
 
 })//document.ready
