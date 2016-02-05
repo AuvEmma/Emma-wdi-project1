@@ -145,6 +145,12 @@ var hideSelected = function(){
   }
 }//hideSelected()
 
+var showSelected = function(){
+  var $hidden = $('.hidden');
+  for (var i = 0; i < $hidden.length;i++){
+    $($hidden).removeClass('hidden').addClass('selected');
+  }
+}
 var startGame = function(r,c){
         $isStartButtonEnable = false;
         $gameboard.width(r * $lengthOfSq).height(c*$lengthOfSq);
@@ -165,6 +171,10 @@ $('#button').on('click',function(e){
   }
 });//button Click
 
+$('#cheat').on('click', function(e){
+  showSelected();
+  window.setTimeout(hideSelected,1500);  
+})
 
 })//document.ready
 

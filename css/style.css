@@ -19,6 +19,28 @@ body {
   margin-top: 235px;
   margin-left: 50px;
 }
+#cheat{
+  font-family: 'Merienda One', Helvetica, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  color: #fff;
+  background-color: #4c4c4c;
+  border-radius: 15px;
+  box-shadow: 3px 3px 3px #fff;
+  position: absolute;
+  margin-left: 900px;
+  margin-top: -45px;
+}
+
+#cheat:hover{
+  background-color: #aaaaaa;
+}
+
+#cheat:active {
+  background-color: #aaaaaa;
+  box-shadow: 0 5px #fff;
+  transform: translateY(4px);
+}
 #button{
   font-family: 'Merienda One', Helvetica, sans-serif;
   cursor: pointer;
