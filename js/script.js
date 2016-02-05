@@ -13,6 +13,7 @@ var $correctGuess = 0;
 var $score1 = 0;
 var $score2 = 0;
 var $currentPlayer = 1;
+var $life = 3;
 
 
 var hideWrong = function(){
@@ -99,12 +100,15 @@ var addEventToEachSq = function(){
         $(this).addClass('wrong');
         window.setTimeout(hideWrong,700);
         $wrongGuess += 1;
+        $life -= 1;
+        $('.wrongGuess').text('Wrong Guesses: '+$life);
         console.log('wrong'+$wrongGuess);
         if(isReadyToSwitchPlayer()){
           $('.hidden').addClass('selected');
           alert('Player '+ $currentPlayer + ' Game Over');
           $currentPlayer = 2;
           $('.square').remove();
+          $life = 3;
           $row = 2;
           $col = 2;
           $wrongGuess = 0;
@@ -115,6 +119,8 @@ var addEventToEachSq = function(){
       }
       if(isReadyForNext()){
         nextLevel();
+        $life = 3;
+        $('.wrongGuess').text('Wrong Guesses: '+$life);
       }
     })//click
   }//for

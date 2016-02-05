@@ -88,3 +88,12 @@ background-color: yellow;
   margin-left: 80px;
   margin-top: 130px;
 }
+.wrongGuess{
+  font: 400 50px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+  font-size: 20px;
+  position: absolute;
+  margin-left: 80px;
+  margin-top: 30px;
+}
