@@ -150,20 +150,7 @@ var startGame = function(r,c){
   // }//if (isStartButtonEnable)
 }//startGame()
 
-
 $('#button').click(startGame($row,$col))
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 })//document.ready
+
+//yeah!!!!!!!!!
