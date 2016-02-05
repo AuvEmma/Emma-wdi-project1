@@ -155,6 +155,7 @@ var addEventToEachSq = function(){
           $cheat = 0;
           $('.square').remove();
           $life = 3;
+          $('.wrongGuess').text('Life: '+$life);
           $row = 2;
           $col = 2;
           $wrongGuess = 0;
