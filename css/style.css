@@ -18,9 +18,11 @@ body {
   background-color: #4c4c4c;
   border-radius: 15px;
   box-shadow: 3px 3px 3px #fff;
+
   margin-top: 190px;
   position: absolute;
   margin-left: 100px;
+
 }
 
 #button:hover{
@@ -43,8 +45,6 @@ body {
   border: 2px solid;
   margin-left: 1px;
   border-color: white;
-  /*display:none;*/
-
 }
 .gameboard{
   position: relative;

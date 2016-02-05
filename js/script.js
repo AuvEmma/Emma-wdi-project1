@@ -12,12 +12,13 @@ var $wrongGuess = 0;
 var $correctGuess = 0;
 var $score1 = 0;
 var $score2 = 0;
+var $currentPlayer = 1;
+
+
 var hideWrong = function(){
   var $wrong= $('.wrong');
   $($wrong).removeClass('wrong');
 }//hideWrong()
-var $currentPlayer = 1;
-
 
 var compareScore = function(){
   if($score1 > $score2){
@@ -32,21 +33,27 @@ var compareScore = function(){
   }
 }//compareScore()
 
+
 var nextLevel = function(){
   $('.square').remove();
-  if ($row <=5 && $col <= 5){
+  if ($row <5 && $col <5){
   $row += 1;
   $col += 1;
   console.log('row'+$row+':'+'col'+$col);
   startGame($row,$col);
+  }else if(($row ===5 && $col ===5)){
+  $row+=4;
+  startGame($row,$col);
+  alert('You are very good at this game! Show me your potential!');
   }else{
   startGame($row,$col);
-};
-$wrongGuess = 0;
-$correctGuess = 0;
+  };
+  $wrongGuess = 0;
+  $correctGuess = 0;
 }//nextLevel
 
 var isReadyForNext = function(){
+
   if($correctGuess === Math.ceil($row*$col/3)){
         if ($currentPlayer === 1){
           $score1 += 1;
@@ -61,9 +68,9 @@ var isReadyForNext = function(){
   }
 }//isReadyForNextLevel
 
+
 var isReadyToSwitchPlayer = function(){
   if ($currentPlayer === 1 && $wrongGuess === 3){
-    // alert('Player '+$currentPlayer+' Game Over, Now Player2');
     return true;
   }
   else if($currentPlayer === 2 && $wrongGuess === 3){
@@ -72,7 +79,7 @@ var isReadyToSwitchPlayer = function(){
   else{
     return false;
   }
-}
+}//isReadyToSwitchPlayer()
 
 var addEventToEachSq = function(){
   var $square = $('.square');
@@ -101,7 +108,6 @@ var addEventToEachSq = function(){
           $correctGuess = 0;
           startGame($row,$col);
           // window.setTimeout(hideSelected(),1000);
-          //startNewGameforPlayer2()
         }
       }
       if(isReadyForNext()){
@@ -118,11 +124,9 @@ var selectRandomColorSquare = function(){
     var $randomSq = $square[$randomIndex];
     $($randomSq).addClass('selected');
     $square = jQuery.grep($square,function(a){
-                      return a !== $randomSq;
-                    });
-};//for
+                      return a !== $randomSq;});
+  };//for
 }//selectRandomColorSquare()
-
 
 var hideSelected = function(){
   var $selected = $('.selected');
@@ -148,19 +152,12 @@ var startGame = function(r,c){
   // }//if (isStartButtonEnable)
 }//startGame()
 
-$('#button').click(startGame($row,$col))
-
-
-
-
-
-
-
-
-
-
-
-
+$('#button').on('click',function(e){
+  startGame($row,$col);
+  console.log('click');
+});
 
 
 })//document.ready
+
+//yeah!!!!!!!!!
