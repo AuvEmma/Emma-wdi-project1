@@ -24,8 +24,10 @@ var hideWrong = function(){
 
 var compareScore = function(){
   if($score1 > $score2){
-    alert('Player 1 Wins!');
+    // alert('Player 1 Wins!');
     $('.square').remove();
+    $('.finalmessage').css('height', '500px').css('width','1500px');
+    $('.finalmessage').text('Player 1 Wins!')
     $isStartButtonEnable = true;
     $gameboard = $('.gameboard');
     $row = 2;//max 5
@@ -43,8 +45,10 @@ var compareScore = function(){
     $('.wrongGuess').text('Life: '+$life);
 
   }else if ($score2 > $score1){
-    alert('Player 2 Wins!');
+    // alert('Player 2 Wins!');
     $('.square').remove();
+    $('.finalmessage').css('height', '500px').css('width','1500px');
+    $('.finalmessage').text('Player 2 Wins!')
     $isStartButtonEnable = true;
     $gameboard = $('.gameboard');
     $row = 2;//max 5
@@ -61,8 +65,10 @@ var compareScore = function(){
     $(".player2").text('Player 2 Score: '+$score2);
     $('.wrongGuess').text('Life: '+$life);
   }else{
-    alert('Tie!');
+    // alert('Tie!');
     $('.square').remove();
+    $('.finalmessage').css('height', '500px').css('width','1500px');
+    $('.finalmessage').text('Tie!')
     $isStartButtonEnable = true;
     $gameboard = $('.gameboard');
     $row = 2;//max 5
@@ -88,7 +94,6 @@ var nextLevel = function(){
   if ($row <5 && $col <5){
   $row += 1;
   $col += 1;
-  console.log('row'+$row+':'+'col'+$col);
   startGame($row,$col);
   }else if(($row ===5 && $col ===5)){
   $row+=4;
@@ -138,7 +143,6 @@ var addEventToEachSq = function(){
       if($(this).hasClass('hidden') && !$(this).hasClass('clicked')){
         $(this).addClass('correct clicked');
         $correctGuess += 1;
-        console.log('correct'+$correctGuess);
       }else if($(this).hasClass('clicked')){
         return
       }else{
@@ -147,7 +151,6 @@ var addEventToEachSq = function(){
         $wrongGuess += 1;
         $life -= 1;
         $('.wrongGuess').text('Life: '+$life);
-        console.log('wrong'+$wrongGuess);
         if(isReadyToSwitchPlayer()){
           $('.hidden').addClass('selected');
           alert('Player '+ $currentPlayer + ' Game Over');
@@ -199,6 +202,8 @@ var showSelected = function(){
   }
 }
 var startGame = function(r,c){
+        $('.finalmessage').text('').css('width', '0px');
+        $('.finalmessage').css('height', '0px')
         $isStartButtonEnable = false;
         $gameboard.width(r * $lengthOfSq).height(c*$lengthOfSq);
         for(var i = 0; i < r * c; i++){

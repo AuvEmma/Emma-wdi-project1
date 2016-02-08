@@ -9,7 +9,16 @@ body {
   text-shadow: 3px 3px 3px #fff;
   padding: 11px 20px 10px 80px
 }
-
+.finalmessage{
+  font: 400 100px/1.2 'Merienda One', Helvetica, sans-serif;
+  color: rgba(0,0,0,0.7);
+  text-shadow: 3px 3px 3px #fff;
+  margin-top: -147px;
+  /*width: 1500px;
+  height: 500px;*/
+  position: absolute;
+  margin-left: 342px;
+}
 .discription{
   font: 400 15px/1.2 'Merienda One', Helvetica, sans-serif;
   color: rgba(0,0,0,0.7);
